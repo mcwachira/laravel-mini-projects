@@ -7,7 +7,7 @@
     <nav class="mb-4">
 
         <a href="{{route('tasks.create')}}"
-        class="font-medium tesxt-gray-700 underline decoration-pink-500">
+        class="link">
             Add Task
         </a>
     </nav>
