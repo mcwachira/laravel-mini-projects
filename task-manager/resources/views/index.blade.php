@@ -4,16 +4,20 @@
 
 
 @section('content')
-    <div>
-        <a href="{{route('tasks.create')}}">
+    <nav class="mb-4">
+
+        <a href="{{route('tasks.create')}}"
+        class="font-medium tesxt-gray-700 underline decoration-pink-500">
             Add Task
         </a>
-    </div>
+    </nav>
 
 {{--    @if(count($tasks))--}}
         @forelse($tasks as $task)
 <div>
-                <a href="{{route('tasks.show', ['task' => $task->id])}}">{{$task ->title}}</a>
+                <a href="{{route('tasks.show', ['task' => $task->id])}}"
+                @class(['line-through font-bold' => $task->completed ])
+                >{{$task ->title}}</a>
             </div>
         @empty
             <div>

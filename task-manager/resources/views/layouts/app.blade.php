@@ -4,12 +4,12 @@
     <title>
         Laravel  Task List App
     </title>
-
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     @yield('styles')
 </head>
 
-<body>
-<h1>
+<body class="container mx-auto mt-10  mb-10 max-w-lg ">
+<h1 class="text-2xl mb-4 font-bold">
 @yield('title')
 </h1>
 
