@@ -4,7 +4,14 @@
     Books
 </h1>
 
-<form action=""></form>
+<form method="GET" action="{{route('books.index')}}" class="mb-4 flex items-center space-x-4">
+    <input class="input h-10" type="text" name="title" placeholder="search by title" value="{{request('title')}}"/>
+
+    <button class="btn h-10" type="submit">Search</button>
+    <a href="{{route('books.index')}}" class="btn h-10">
+        Clear
+    </a>
+</form>
 
 <ul>
     @forelse ($books as $book)
