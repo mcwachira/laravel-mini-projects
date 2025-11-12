@@ -16,13 +16,22 @@ class ReviewFactory extends Factory
      */
     public function definition(): array
     {
+        /**
+         *
+         * dateTimeBetween() does NOT understand 'created_at' as the previously generated value.
+         * It treats it as a literal string → causing Faker to use its default behavior → generating random dates in the past (even 1990s or 2000s).
+         *
+         *
+         * You must first generate the date, then reuse it: $created_at
+         */
+        $createdAt = fake()->dateTimeBetween('-2 years', 'now');
+
         return [
             'book_id' => null,
             'review' => fake()->paragraph,
             'rating' => fake()->numberBetween(1, 5),
             'created_at' => fake()->dateTimeBetween('-2 years'),
-            'updated_at' => fake()->dateTimeBetween('created_at', 'now'),
-
+            'updated_at' => fake()->dateTimeBetween($createdAt, 'now'),
         ];
     }
 
