@@ -34,10 +34,11 @@ class BookController extends Controller
         $cacheKey = 'books:' . ($filter ?? 'default') . ':' . ($title ?? 'all');
 
         // Step 4: Use Cache::remember() before executing query
-        $books = Cache::remember($cacheKey, 3600, function () use ($books) {
-//            dd('Not from cache');
-            return $books->get();
-        });
+//        $books = Cache::remember($cacheKey, 3600, function () use ($books) {
+////            dd('Not from cache');
+//            return $books->get();
+//        });
+        $books = $books->get();
 
         // Step 5: Return the view
         return view('books.index', ['books' => $books]);

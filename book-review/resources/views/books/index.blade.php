@@ -20,7 +20,7 @@
     'popular_last_month' => 'Popular Last Month',
     'popular_last_6months' => 'Popular Last 6  Month',
     'highest_rated_month' => 'Highest Rated Last Month',
-    'highest_rated_6months' => 'Highest Rated Last 6 Months',
+    'highest_rated_6months ' => 'Highest Rated Last 6 Months',
     ]
     @endphp
 
@@ -45,7 +45,9 @@
                     </div>
                     <div>
                         <div class="book-rating">
-                            {{ number_format($book->reviews_avg_rating, 1) }}
+{{--                            {{ number_format($book->reviews_avg_rating, 1) }}--}}
+
+                            <x-star-rating :rating="$book->reviews_avg_rating"/>
                         </div>
                         <div class="book-review-count">
                             out of {{ $book->reviews_count }} {{ Str::plural('review', $book->reviews_count) }}
