@@ -27,7 +27,7 @@ class BookController extends Controller
             'popular_last_6months' => $books->popularLast6Months(),
             'highest_rated_month' => $books->highestRatedLastMonth(),
                 'highest_rated_6months' => $books->highestRatedLast6Months(),
-            default => $books->latest(),
+            default => $books->latest()->WithAverageRating()->withReviewsCount(),
         };
 
         // Step 3: Create a unique cache key
@@ -64,14 +64,14 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show(int $id)
     {
 
-        $cacheKey = 'book:' . $book->id;
-        $book = Cache::remember($cacheKey, 3600, function () use ($book) {
-         return $book ->load([
+        $cacheKey = 'book:' . $id;
+        $book = Cache::remember($cacheKey, 3600, function () use ($id) {
+         return Book::with([
                'reviews' => fn($query) => $query->latest()
-           ]);
+           ])->WithAverageRating()->withReviewsCount()->findOrFail($id);
         });
         return view(
             'books.show',
