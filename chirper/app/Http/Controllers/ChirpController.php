@@ -77,8 +77,12 @@ class ChirpController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Chirp $chirp)
+
     {
         //
+        $chirp->delete();
+
+          return redirect('/') -> with('success', 'Chirp deleted successfully!');
     }
 }
