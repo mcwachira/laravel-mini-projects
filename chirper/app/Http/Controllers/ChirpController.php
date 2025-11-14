@@ -31,6 +31,17 @@ class ChirpController
     public function store(Request $request)
     {
         //
+
+        $validated = $request->validate([
+            'message' => 'required|string|max:255|min:5',
+        ]);
+
+        //create a chirp .will add a user later
+        Chirp::create([
+            'message' => $validated['message'],
+//            'user_id' => null,
+        ]);
+        return redirect('/') -> with('success', 'Chirp created successfully!');
     }
 
     /**
@@ -44,17 +55,23 @@ class ChirpController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Chirp $chirp)
     {
-        //
+        return view('chirps.edit', compact('chirp'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Chirp $chirp)
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string|max:255|min:5',
+        ]);
+
+        //create a chirp .will add a user later
+       $chirp->update($validated );
+        return redirect('/') -> with('success', 'Chirp updated successfully!');
     }
 
     /**
