@@ -34,4 +34,28 @@ public function store (Request $request){
 public function show (Event $event){
         return $event;
 }
+
+public function update(Request $request , Event $event){
+
+    $event -> update($request ->validate([
+            'name' => 'sometimes|string|max:255',
+            'description' => 'nullable|string|',
+            'start_time' => 'sometimes|date',
+            'end_time' => 'sometimes|date|after:start_time',
+
+        ]),
+    );
+
+    return $event;
+
+}
+
+public function destroy (Event $event){
+        $event -> delete();
+
+        return response()->json([
+            'message' => 'Event deleted successfully'
+        ]);
+}
+
 }
