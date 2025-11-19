@@ -9,7 +9,7 @@
 
     @foreach($poll -> options as $option)
         <div class="mb-2">
-            <button class="btn">
+            <button class="btn" wire:click="vote({{$option->id}})">
                 Vote
             </button>
 
