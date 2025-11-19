@@ -6,9 +6,13 @@
         <label>
             Poll Title
         </label>
+        @error("title")
+        <div class="text-red-500">
+            {{$message}}
+        </div>   @enderror
 
         <input type="text" wire:model="title"/>
-        Current title :{{$title}}
+
 
 
         <div class="mb-4 mt-4 ">
@@ -29,8 +33,16 @@
 
             <div class="flex gap-2">
                 <input type="text" wire:model="options.{{$index}}">
+
+
                 <button class="btn" wire:click.prevent="removeOption({{$index}})"> Remove</button>
             </div>
+
+
+        @error("options.{$index}")
+        <div class="text-red-500">
+            {{$message}}
+        </div>   @enderror
 {{--        {{$index}} - {{$option}}--}}
 
     </div>
