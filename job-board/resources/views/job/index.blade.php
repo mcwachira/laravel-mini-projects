@@ -12,7 +12,7 @@
 <div class="mb-1 font-semibold">
     Search
 </div>
-            <x-text-input name="search" value="" placeholder="search for any text" />
+            <x-text-input name="search" value="{{request('search')}}" placeholder="search for any text"  />
         </div>
 
 
@@ -22,8 +22,8 @@
             </div>
 
             <div class="flex space-x-3">
-                <x-text-input name="min_salary" value="" placeholder="From" />
-                <x-text-input name="max_salary" value="" placeholder="to" />
+                <x-text-input name="min_salary" value="{{request('min_salary')}}"  placeholder="From" />
+                <x-text-input name="max_salary" value="{{request('max_salary')}}"  placeholder="to" />
             </div>
 
 
