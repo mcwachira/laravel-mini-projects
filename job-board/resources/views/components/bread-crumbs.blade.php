@@ -3,9 +3,7 @@
         <li>
             <a href="/">Home </a>
         </li>
-        <li>
-            <a href="/">Home </a>
-        </li>
+
 
         @foreach($links as $label => $link)
             <li> -> </li>
