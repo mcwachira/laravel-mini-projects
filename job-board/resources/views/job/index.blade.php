@@ -29,17 +29,23 @@
 
 
         </div>
-{{--        <div>--}}
-{{--            <div class="mb-1 font-semibold">--}}
-{{--    Search--}}
-{{--</div>--}}
-{{--            <x-text-input name="search" value="" placeholder="search for any text" />--}}
-{{--        </div>--}}
-{{--        <div><div class="mb-1 font-semibold">--}}
-{{--    Search--}}
-{{--</div>--}}
-{{--            <x-text-input name="search" value="" placeholder="search for any text" />--}}
-{{--        </div>--}}
+        <div>
+            <div class="mb-1 font-semibold">
+    Experience
+</div>
+           <x-radio-group name="experience" :options="\App\Models\Job::$experience">
+
+           </x-radio-group>
+
+        </div>
+        <div>
+            <div class="mb-1 font-semibold">
+   Category
+</div>
+            <x-radio-group name="category" :options="\App\Models\Job::$category">
+
+            </x-radio-group>
+        </div>
     </div>
 
         <button class="mt-10 w-full">
