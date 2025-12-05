@@ -18,6 +18,7 @@ class EmployerFactory extends Factory
     {
         return [
             //
+            'company_name' => fake()->company,
         ];
     }
 }
