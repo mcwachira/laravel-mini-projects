@@ -40,7 +40,7 @@ $filters = request()->only('search', 'min_salary', 'max_salary', 'experience', '
      */
     public function show(Job $job)
     {
-        return view('job.show', ['job' =>$job->load('employer') ]);
+        return view('job.show', ['job' =>$job->load('employer.jobs') ]);
     }
 
     /**

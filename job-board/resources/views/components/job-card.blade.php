@@ -13,7 +13,7 @@
     <div class="mb-4 flex justify-between items-center text-sm text-slate-500">
         <div class="flex space-x-4">
             <div>
-              {{$job ->employer-> company_name}}
+               {{$job ->employer-> company_name}}
             </div>
 
             <div>
