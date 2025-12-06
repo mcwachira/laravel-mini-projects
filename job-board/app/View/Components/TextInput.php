@@ -14,6 +14,7 @@ class TextInput extends Component
     public function __construct(
         public ?string $value = null,
         public ?string $name= null,
+        public ?string $type= 'text',
         public ?string $placeholder = null,
         public ?string $formRef = null,
     )
