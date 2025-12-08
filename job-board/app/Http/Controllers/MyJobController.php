@@ -21,6 +21,7 @@ class MyJobController extends Controller
     public function create()
     {
         //
+        return view('my_job.create');
     }
 
     /**
