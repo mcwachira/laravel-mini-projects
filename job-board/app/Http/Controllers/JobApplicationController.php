@@ -40,7 +40,7 @@ class JobApplicationController extends Controller
         $job -> jobApplications()-> create([
             'user_id' => $request -> user() -> id,
             'expected_salary' => $validatedData['expected_salary'],
-            'cv' => $path,
+            'cv_path' => $path,
         ]);
 
         return redirect()->route('jobs.show', $job)->with('success', 'Job Application submitted');
